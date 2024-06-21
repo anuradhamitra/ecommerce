@@ -14,15 +14,19 @@ Action action= new Action();
 	private WebElement productResult;
 	
 	public SearchResultPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	public boolean isProductAvailable() throws Throwable {
-		return Action.isDisplayed(driver, productResult);
+		Action.explicitWait(getDriver(), productResult, 100 );
+		Action.scrollByVisibilityOfElement(getDriver(), productResult);
+		return Action.isDisplayed(getDriver(), productResult);
 	}
 	
 	public AddToCartPage clickOnProduct() throws Throwable {
-		Action.click(driver, productResult);
+		Action.explicitWait(getDriver(), productResult, 100 );
+		Action.scrollByVisibilityOfElement(getDriver(), productResult);
+		Action.click(getDriver(), productResult);
 		return new AddToCartPage();
 	}
 	

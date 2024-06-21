@@ -14,20 +14,20 @@ public class Product_Page extends BaseClass {
 	@FindBy(id="submit_search")
 	public WebElement searchButton;
 	public Product_Page() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	public SearchResultPage searchProduct(String productName) throws Throwable {
-		Thread.sleep(4000);
-		Action.scrollByVisibilityOfElement(driver, searchProductBox);
+		Action.explicitWait(getDriver(), searchProductBox, 700 );
+		Action.scrollByVisibilityOfElement(getDriver(), searchProductBox);
 		
 		Action.type(searchProductBox, productName);
-		Action.click(driver, searchButton);
+		Action.click(getDriver(), searchButton);
 		
 		return new SearchResultPage();
 	}
 	public String getCurrURL()
 	{
-		String homePageURL=driver.getCurrentUrl();
+		String homePageURL=getDriver().getCurrentUrl();
 		return homePageURL;
 	}
 }

@@ -25,21 +25,20 @@ Action action= new Action();
 	private WebElement proceedToCheckOutBtn;
 	
 	public AddToCartPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
-
 	public void enterQuantity(String quantity1) throws Throwable {
+		Action.explicitWait(getDriver(), quantity, 2000 );
 		Action.type(quantity, quantity1);
 	}
-	
-	
-	public void clickOnAddToCart() throws Throwable {
-		Action.click(driver, addToCartBtn);
+	public void clickOnAddCart() throws Throwable {
+		
+		Action.click(getDriver(), addToCartBtn);
 	}
 	
 	public boolean validateAddtoCart() throws Throwable {
-		Action.fluentWait(driver, addToCartMessag, 10);
-		return Action.isDisplayed(driver, addToCartMessag);
+		Action.fluentWait(getDriver(), addToCartMessag, 10);
+		return Action.isDisplayed(getDriver(), addToCartMessag);
 	}
 	
 	
