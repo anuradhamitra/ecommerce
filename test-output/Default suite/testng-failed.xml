@@ -3,14 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.ecommerce.testcases.ProductPageTest">
+      <class name="com.ecommerce.testcases.EcommerceEToE">
         <methods>
+          <include name="setup"/>
           <include name="loadConfig"/>
           <include name="tearDown"/>
-          <include name="setup"/>
-          <include name="productAvailable"/>
+          <include name="beforeSuite"/>
+          <include name="addToCart"/>
         </methods>
-      </class> <!-- com.ecommerce.testcases.ProductPageTest -->
+      </class> <!-- com.ecommerce.testcases.EcommerceEToE -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

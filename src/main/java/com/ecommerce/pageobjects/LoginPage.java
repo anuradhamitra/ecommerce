@@ -30,20 +30,20 @@ public class LoginPage extends BaseClass {
 	private WebElement createNewAccountBtn;
 	
 	public LoginPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	public HomePage login(String email_log, String pass_log)
 	{
 		Action.type(email, email_log);
 		Action.type(password, pass_log);
-		Action.click(driver, signInBtn);
+		Action.click(getDriver(), signInBtn);
 		return new HomePage();
 	}
 	public AccountCreationPage createNewAccount(String new_name, String new_email)
 	{
 		Action.type(nameForNewAccount, new_name);
 		Action.type(emailForNewAccount, new_email);
-		Action.click(driver, createNewAccountBtn);
+		Action.click(getDriver(), createNewAccountBtn);
 		return new AccountCreationPage();
 	}
 	

@@ -1,5 +1,6 @@
 package com.ecommerce.pageobjects;
 
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -67,7 +68,7 @@ public class AccountCreationPage extends BaseClass {
 	private WebElement registerBtn;
 	
 	public AccountCreationPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	public void createAccount(String gender,String fName, String customerfirstName, String lName,
@@ -85,9 +86,9 @@ public class AccountCreationPage extends BaseClass {
 			String mobilePhone) throws Throwable {
 		
 		if(gender.equalsIgnoreCase("Mr")) {
-			Action.click(driver, mr);
+			Action.click(getDriver(), mr);
 		} else {
-			Action.click(driver, mrs);
+			Action.click(getDriver(), mrs);
 		}
 		Action.type(firstName, fName);
 		Action.type(customerFirstName, customerfirstName);
@@ -112,12 +113,14 @@ public class AccountCreationPage extends BaseClass {
 	}
 	
 	public boolean validateAcountCreatePage() throws Throwable {
-		 return Action.isDisplayed(driver, formTitle);
+		Action.explicitWait(getDriver(), formTitle, 100 );
+		 return Action.isDisplayed(getDriver(), formTitle);
+		 
 	}
 	public String getCurrURL()
 	{
-		String homePageURL=driver.getCurrentUrl();
-		return homePageURL;
+		String accountPageURL=getDriver().getCurrentUrl();
+		return accountPageURL;
 	}
 	
 }
