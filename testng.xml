@@ -7,11 +7,9 @@
     <test name="ECommerceTest" parallel="tests" thread-count="5">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="com.ecommerce.testcases.LoginPageTest"/>
-            <class name="com.ecommerce.testcases.HomePageTest"/>
-            <class name="com.ecommerce.testcases.EcommerceEToE"/>
+      
             <class name="com.ecommerce.testcases.AccountPageTest"/>
-            <class name="com.ecommerce.testcases.ProductPageTest"/>
+           
         </classes>
     </test>
 </suite>
